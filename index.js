@@ -16,7 +16,6 @@ const puissance_router = require("./routes/puissanceRoute");
 const devis_router = require("./routes/devisRoute");
 const indicateur_router = require("./routes/indicateurRoute");
 const cors = require("cors");
-
 connectMongo();
 const corsOptions = {
   origin: "*",
@@ -25,7 +24,7 @@ const corsOptions = {
 // ["http://localhost:3000", "http://localhost:3001"];
 app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "/uploads")));
+app.use(express.static(path.join(process.cwd(), 'uploads/imagesArticle')));
 app.use(body_parser.json());
 app.use(projet_router);
 app.use(article_router);
