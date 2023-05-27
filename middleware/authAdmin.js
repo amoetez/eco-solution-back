@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
         const decoded = jwt.verify(req.header('Authorization'), 'thisIsMySecretMessage')
         console.log('decoded', decoded);
         console.log('t3adit');
-        const admin = await Admin.findOne({ _id: decoded._id, 'tokens.token': req.cookies.token })
+        const admin = await Admin.findOne({ _id: decoded._id, 'tokens.token': req.header('Authorization') })
         console.log('admin mil middleware', admin);
         console.log('hata lina');
         
