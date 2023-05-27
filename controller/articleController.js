@@ -8,6 +8,9 @@ const addArticle = async (req, res) => {
     console.log("body")
     console.log(req.body)
     console.log("endbody")
+    console.log("files")
+    console.log(req.files)
+    console.log("endfiles")
     
     try {
         if(req.files == undefined || req.files.length === 0)
