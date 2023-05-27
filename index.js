@@ -24,7 +24,7 @@ const corsOptions = {
 // ["http://localhost:3000", "http://localhost:3001"];
 app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use(express.static(path.join(process.cwd(), 'uploads/imagesArticle')));
+app.use(express.static(path.join(process.cwd(), 'uploads')));
 app.use(body_parser.json());
 app.use(projet_router);
 app.use(article_router);
