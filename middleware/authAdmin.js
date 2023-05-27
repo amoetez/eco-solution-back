@@ -7,8 +7,8 @@ const auth = async (req, res, next) => {
         // const token = req.token.replace('Bearer ', '');
         // console.log(token);
         console.log('nahna fil auth');
-        console.log('hedha token mil auth', req.cookies.token);
-        const decoded = jwt.verify(req.cookies.token, 'thisIsMySecretMessage')
+        console.log('hedha token mil auth', req.header.Authorization);
+        const decoded = jwt.verify(req.header.Authorization, 'thisIsMySecretMessage')
         console.log('decoded', decoded);
         console.log('t3adit');
         const admin = await Admin.findOne({ _id: decoded._id, 'tokens.token': req.cookies.token })
@@ -20,7 +20,7 @@ const auth = async (req, res, next) => {
             throw new Error()
         }
 
-        req.token = req.cookies.token;
+        req.token = req.header.Authorization;
         req.admin = admin
         console.log('token, admin',req.token);
         next()
