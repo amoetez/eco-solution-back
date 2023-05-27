@@ -2,8 +2,11 @@ const { findById } = require('../models/Article.js');
 const Article = require('../models/Article.js');
 const path = require('path');
 const fs = require('fs');
+const path = require("path");
 
 const addArticle = async (req, res) => {
+    console.log(process.cwd())
+    console.log(path.join(process.cwd(), 'uploads/imagesArticle'))
     const { contenu, description, titre } = req.body;
     console.log("body")
     console.log(req.body)

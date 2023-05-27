@@ -4,10 +4,11 @@ const router = new express.Router();
 const articleController = require('../controller/articleController');
 const auth = require('../middleware/authAdmin');
 const multer = require('multer');
+const path = require("path");
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, '/uploads/imagesArticle');
+        cb(null, path.join(process.cwd(), 'uploads/imagesArticle'));
     },
     filename: function(req, file, cb) {
         cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname)
